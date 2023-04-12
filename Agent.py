@@ -16,19 +16,14 @@ class Agent:
 
         random.shuffle(self.__sources)
         for location in self.__sources:
-            if location.get_agents < limit:
+            if location.get_agents() < limit:
                 self.location = location
                 break
-        if self.location is None:
-            self.die()
-        else:
-            self.add_self_to_source()
+        self.add_self_to_source()
+        return location
 
     def add_self_to_source(self):
         raise NotImplementedError
     
     def remove_self_from_source(self):
         raise NotImplementedError
-    
-    def die(self):
-        pass
