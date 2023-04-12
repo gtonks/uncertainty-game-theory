@@ -16,6 +16,7 @@ class Part1:
         agents = self.__doves + self.__hawks
         random.shuffle(agents)
         for agent in agents:
+            agent.choose_source()
 
 
 if __name__ == "__main__":

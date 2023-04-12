@@ -20,3 +20,6 @@ class FoodSource:
     
     def get_hawks(self) -> int:
         return self.__hawks
+    
+    def get_agents(self) -> int:
+        return self.__doves + self.__hawks
