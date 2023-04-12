@@ -5,7 +5,7 @@ from FoodSource import FoodSource
 
 class Agent:
     def __init__(self, sources: FoodSource) -> None:
-        self.__sources = sources
+        self.sources = sources
         self.location = None
 
     def choose_source(self, limit: int=2):
@@ -14,8 +14,8 @@ class Agent:
         """
         assert self.location is None
 
-        random.shuffle(self.__sources)
-        for location in self.__sources:
+        random.shuffle(self.sources)
+        for location in self.sources:
             if location.get_agents() < limit:
                 self.location = location
                 break

@@ -14,3 +14,6 @@ class Dove(Agent):
         if self.location is not None:
             self.location.remove_dove()
             self.location = None
+
+    def clone(self):
+        return Dove(self.sources)
