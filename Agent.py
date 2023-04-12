@@ -20,7 +20,7 @@ class Agent:
                 self.location = location
                 break
         self.add_self_to_source()
-        return location
+        return self.location
 
     def add_self_to_source(self):
         raise NotImplementedError

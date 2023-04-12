@@ -1,5 +1,6 @@
 class FoodSource:
-    def __init__(self) -> None:
+    def __init__(self, id) -> None:
+        self.id = id
         self.__doves = 0
         self.__hawks = 0
 

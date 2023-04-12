@@ -7,8 +7,10 @@ class Dove(Agent):
         super().__init__(sources)
 
     def add_self_to_source(self):
-        self.location.add_dove()
+        if self.location is not None:
+            self.location.add_dove()
 
     def remove_self_from_source(self):
-        self.location.remove_dove()
-        self.location = None
+        if self.location is not None:
+            self.location.remove_dove()
+            self.location = None
