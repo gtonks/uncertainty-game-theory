@@ -1,14 +1,14 @@
 import random
 
 from FoodSource import FoodSource
-from Dove import Dove
+from Dove1 import Dove1
 from Hawk import Hawk
 
 
 class Part1:
     def __init__(self, sources: int, doves: int, hawks: int) -> None:
         self.__sources = [FoodSource(i) for i in range(sources)]
-        self.__agents = [Dove(self.__sources) for i in range(doves)] + [Hawk(self.__sources) for i in range(hawks)]
+        self.__agents = [Dove1(self.__sources) for i in range(doves)] + [Hawk(self.__sources) for i in range(hawks)]
         self.n_doves = [doves,]
         self.n_hawks = [hawks,]
 
@@ -38,7 +38,7 @@ class Part1:
         self.n_doves.append(0)
         self.n_hawks.append(0)
         for agent in self.__agents:
-            if type(agent) is Dove:
+            if type(agent) is Dove1:
                 self.n_doves[-1] += 1
             elif type(agent) is Hawk:
                 self.n_hawks[-1] += 1
