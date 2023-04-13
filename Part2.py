@@ -40,8 +40,10 @@ class Part2(Simulation):
                         win_xp += 0.5
                 for hawk in fight:
                     if hawk.xp == win_xp:
-                        if hawk.location.get_doves() == 0:
-                            to_clone.append(hawk)
+                        hawk.win_fight()
+                        # I don't think this is necessary...
+                        # if hawk.location.get_doves() == 0:
+                        #     to_clone.append(hawk)
                     else:
                         to_kill.append(hawk)
 

@@ -7,6 +7,7 @@ from FoodSource import FoodSource
 class Hawk2(Hawk):
     def __init__(self, sources: FoodSource) -> None:
         super().__init__(sources)
+        self.xp = 0
 
     def clone(self):
         return Hawk2(self.sources)
@@ -29,4 +30,9 @@ class Hawk2(Hawk):
                 n_hawks = self.location.get_hawks()
                 if n_hawks > 1:
                     return -2
+                else:
+                    self.win_fight()
         return 0
+    
+    def win_fight(self):
+        self.xp += 1
