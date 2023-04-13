@@ -1,6 +1,7 @@
 import random
 
 from FoodSource import FoodSource
+from Agent import Agent
 from Dove import Dove
 from Hawk import Hawk
 
@@ -16,14 +17,7 @@ class Simulation:
         for agent in self._agents:
             agent.choose_source()
 
-        to_kill = list()
-        to_clone = list()
-        for agent in self._agents:
-            reward = agent.get_reward()
-            if reward == -1:
-                to_kill.append(agent)
-            elif reward == 1:
-                to_clone.append(agent)
+        to_kill, to_clone = self.handle_rewards()
 
         for agent in self._agents:
             agent.remove_self_from_source()
@@ -43,3 +37,10 @@ class Simulation:
                 n_hawks += 1
         self.n_doves.append(n_doves)
         self.n_hawks.append(n_hawks)
+
+    def handle_rewards(self):
+        """
+        Returns a tuple:
+            (agents_to_kill, agents_to_clone)
+        """
+        raise NotImplementedError

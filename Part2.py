@@ -10,6 +10,9 @@ class Part2(Simulation):
         super().__init__(sources, doves, hawks)
         self._agents = [Dove2(self._sources) for i in range(doves)] + [Hawk2(self._sources) for i in range(hawks)]
 
+    def rewards(self):
+        pass
+
 
 if __name__ == "__main__":
     random.seed(42)
