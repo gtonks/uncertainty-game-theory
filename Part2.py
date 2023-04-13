@@ -1,3 +1,5 @@
+import random
+
 from Simulation import Simulation
 from Dove2 import Dove2
 from Hawk import Hawk
@@ -10,7 +12,7 @@ class Part2(Simulation):
 
 
 if __name__ == "__main__":
-    # random.seed(42)
+    random.seed(42)
     sim = Part2(sources=60, doves=60, hawks=60)
     for i in range(20):
         sim.step()
