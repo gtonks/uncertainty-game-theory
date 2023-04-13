@@ -1,7 +1,6 @@
 import random
 
 from FoodSource import FoodSource
-from Agent import Agent
 from Dove import Dove
 from Hawk import Hawk
 
