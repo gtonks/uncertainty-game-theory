@@ -34,11 +34,12 @@ class Simulation:
         for agent in to_clone:
             self._agents.append(agent.clone())
 
-        self.n_doves.append(0)
-        self.n_hawks.append(0)
+        n_doves = 0
+        n_hawks = 0
         for agent in self._agents:
             if isinstance(agent, Dove):
-                self.n_doves[-1] += 1
-            elif type(agent) is Hawk:
-                self.n_hawks[-1] += 1
-                
+                n_doves += 1
+            elif isinstance(agent, Hawk):
+                n_hawks += 1
+        self.n_doves.append(n_doves)
+        self.n_hawks.append(n_hawks)
