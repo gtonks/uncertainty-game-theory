@@ -9,6 +9,9 @@ class Hawk2(Hawk):
         super().__init__(sources)
         self.xp = 0
 
+    def choose_source(self, limit: int=999999):
+        return super().choose_source(limit)
+
     def clone(self):
         return Hawk2(self.sources)
     

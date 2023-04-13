@@ -4,9 +4,6 @@ from Dove import Dove
 
 
 class Dove1(Dove):
-    def choose_source(self):
-        return super().choose_source()
-
     def clone(self):
         return Dove1(self.sources)
     
