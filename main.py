@@ -7,7 +7,6 @@ from Hawk import Hawk
 
 class Part1:
     def __init__(self, sources: int, doves: int, hawks: int) -> None:
-        #self.__n_sources = sources
         self.__sources = [FoodSource(i) for i in range(sources)]
         self.__agents = [Dove(self.__sources) for i in range(doves)] + [Hawk(self.__sources) for i in range(hawks)]
         self.n_doves = [doves,]
@@ -17,9 +16,7 @@ class Part1:
         random.shuffle(self.__agents)
         for agent in self.__agents:
             agent.choose_source()
-        #     else:
-        #         print(new_source.id, end='')
-        # print()
+
         to_kill = list()
         to_clone = list()
         for agent in self.__agents:
@@ -53,5 +50,3 @@ if __name__ == "__main__":
     for i in range(20):
         sim.step()
         print(f"{sim.n_doves[i]} {sim.n_hawks[i]}")
-    # print(f"{sim.n_doves}")
-    # print(f"{sim.n_hawks}")
