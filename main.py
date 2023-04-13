@@ -26,17 +26,27 @@ class Part1:
             if agent.location is None:
                 to_kill.append(agent)
             else:
-                agents_at_loc = agent.location.get_agents()
-                if agents_at_loc == 1:
+                n_agents = agent.location.get_agents()
+                if n_agents == 1:
+                    # print(f"{type(agent)} reproduces!")
                     to_clone.append(agent)
                 else:
-                    pass
-
-        for agent in to_kill:
-            self.__agents.remove(agent)
+                    n_hawks = agent.location.get_hawks()
+                    if n_hawks == 1:
+                        if type(agent) is Dove:
+                            if random.random() > 0.5:
+                                to_kill.append(agent)
+                        else:
+                            if random.random() > 0.5:
+                                to_clone.append(agent)
+                    elif n_hawks == 2:
+                        to_kill.append(agent)
 
         for agent in self.__agents:
             agent.remove_self_from_source()
+
+        for agent in to_kill:
+            self.__agents.remove(agent)
 
         for agent in to_clone:
             self.__agents.append(agent.clone())
@@ -51,8 +61,10 @@ class Part1:
 
 
 if __name__ == "__main__":
-    random.seed(42)
-    sim = Part1(10, 3, 0)
+    # random.seed(42)
+    sim = Part1(sources=60, doves=60, hawks=60)
     for i in range(20):
         sim.step()
         print(f"{sim.n_doves[i]} {sim.n_hawks[i]}")
+    # print(f"{sim.n_doves}")
+    # print(f"{sim.n_hawks}")

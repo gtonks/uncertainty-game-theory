@@ -23,4 +23,5 @@ class FoodSource:
         return self.__hawks
     
     def get_agents(self) -> int:
+        # print(f"{self.id=}: {self.__doves=} {self.__hawks=}")
         return self.__doves + self.__hawks
