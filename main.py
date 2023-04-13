@@ -23,24 +23,11 @@ class Part1:
         to_kill = list()
         to_clone = list()
         for agent in self.__agents:
-            if agent.location is None:
+            reward = agent.get_reward()
+            if reward == -1:
                 to_kill.append(agent)
-            else:
-                n_agents = agent.location.get_agents()
-                if n_agents == 1:
-                    # print(f"{type(agent)} reproduces!")
-                    to_clone.append(agent)
-                else:
-                    n_hawks = agent.location.get_hawks()
-                    if n_hawks == 1:
-                        if type(agent) is Dove:
-                            if random.random() > 0.5:
-                                to_kill.append(agent)
-                        else:
-                            if random.random() > 0.5:
-                                to_clone.append(agent)
-                    elif n_hawks == 2:
-                        to_kill.append(agent)
+            elif reward == 1:
+                to_clone.append(agent)
 
         for agent in self.__agents:
             agent.remove_self_from_source()

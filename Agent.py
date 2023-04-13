@@ -27,3 +27,12 @@ class Agent:
     
     def remove_self_from_source(self):
         raise NotImplementedError
+    
+    def get_reward(self):
+        """
+        Returns:
+            -1 to die
+             0 to do nothing
+             1 to reproduce
+        """
+        raise NotImplementedError
