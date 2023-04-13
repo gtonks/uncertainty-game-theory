@@ -2,13 +2,13 @@ import random
 
 from Simulation import Simulation
 from Dove1 import Dove1
-from Hawk import Hawk
+from Hawk1 import Hawk1
 
 
 class Part1(Simulation):
     def __init__(self, sources: int, doves: int, hawks: int) -> None:
         super().__init__(sources, doves, hawks)
-        self._agents = [Dove1(self._sources) for i in range(doves)] + [Hawk(self._sources) for i in range(hawks)]
+        self._agents = [Dove1(self._sources) for i in range(doves)] + [Hawk1(self._sources) for i in range(hawks)]
 
 
 if __name__ == "__main__":

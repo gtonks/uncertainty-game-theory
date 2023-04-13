@@ -14,6 +14,7 @@ class Hawk2(Hawk):
     def get_reward(self):
         """
         Returns:
+            -2 to fight
             -1 to die
              0 to do nothing
              1 to reproduce
@@ -26,9 +27,6 @@ class Hawk2(Hawk):
                 return 1
             else:
                 n_hawks = self.location.get_hawks()
-                if n_hawks == 1:
-                    if random.random() > 0.5:
-                        return 1
-                elif n_hawks == 2:
-                    return -1
+                if n_hawks > 1:
+                    return -2
         return 0
