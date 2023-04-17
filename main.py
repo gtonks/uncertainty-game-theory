@@ -33,6 +33,7 @@ elif len(sys.argv) != 1:
         exit()
 
 for sim in (Part1(n_sources, n_doves, n_hawks), Part2(n_sources, n_doves, n_hawks)):
+    print("Doves Hawks")
     for i in range(sim_len):
         sim.step()
         print(f"{sim.n_doves[i]} {sim.n_hawks[i]}")

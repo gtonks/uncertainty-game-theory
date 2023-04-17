@@ -1,5 +1,3 @@
-import random
-
 from Hawk import Hawk
 from FoodSource import FoodSource
 
